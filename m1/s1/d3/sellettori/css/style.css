@@ -1,0 +1,33 @@
+.a {
+    text-align: center;
+}
+
+.b {
+    text-align: center;
+    border-top: 2px solid;
+    background-color: yellow;
+    padding: 1px;
+    color:blue;
+}
+
+main {
+    max-width: 800px;
+    margin: auto;
+}
+
+section {
+    max-width: 800px;
+    margin: auto;
+}
+
+aside {
+    max-width: 800px;
+    margin: auto;
+}
+
+footer {
+    max-width: 800px;
+    margin: auto;
+}
+
+
