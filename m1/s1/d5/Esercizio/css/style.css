@@ -34,7 +34,7 @@ header {
 
 .prima-sezione h1{
     font-size: 40px;
-    color: rgb(4, 155, 214);
+    color: #25a2c3 ;
     padding-top: 30px;
     padding-left: 80px;
     padding-right: 80px;
@@ -71,7 +71,7 @@ header {
 }
 
 .seconda-sezione h2{
-    color: rgb(4, 155, 214);
+    color: #25a2c3 ;
     padding-bottom: 30px;
     padding-top: 30px;
     font-weight: bold;
@@ -114,3 +114,73 @@ header {
     font-style: italic;
 }
 
+.nome-autore{
+    padding-bottom: 10px;
+    font-size: larger;
+}
+
+.posizione{
+    font-size: smaller;
+}
+
+/*ASIDE*/
+
+aside{
+    text-align: center;
+    background-color: white;
+}
+  
+.titolo-celeste{
+    color: #25a2c3 ;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    padding: 20px;
+    font-size: bold;
+}
+
+aside p{
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    line-height: 1.8;
+}
+
+/*FOOTER*/
+
+footer{
+    background-color: #25a2c3;
+    padding-top: 200px;
+    text-align: center;
+    color: white;
+    font-family:'Open Sans', sans-serif ;
+}
+
+footer h2{
+    padding-top: 30px;
+    font-size: 2em;
+}
+
+footer p{
+    line-height: 1.5;
+}
+
+footer .telefono{
+    text-decoration: underline;
+}
+
+footer .email{
+    text-decoration: underline;
+}
+
+footer .copyright{
+    font-weight: lighter;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+hr{
+    max-width: 150px;
+    margin-top: 30px;
+    width: 20%;
+}
