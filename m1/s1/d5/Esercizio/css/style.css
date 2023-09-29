@@ -6,12 +6,12 @@
 header {
     background-color: black;
     text-align: center;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    box-sizing: border-box;
+    padding: 30px;
 }
 
 .logo img {
-    max-width: 50%;
+    width: 40%;
     height: auto;
 }
 
