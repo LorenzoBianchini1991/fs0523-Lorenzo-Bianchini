@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
+
+
+/*HEADER*/
+
+header {
+    background-color: black;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.logo img {
+    max-width: 50%;
+    height: auto;
+}
+
+/*MAIN*/
+
+/*PRIMA SEZIONE*/
+
+.prima-sezione {
+    background-image: url(banner.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    display: flex;
+    height: 40vh;
+}
+
+.contenuto-prima-sezione{
+    padding: 10px 20px;
+}
+
+.prima-sezione h1{
+    font-size: 40px;
+    color: rgb(4, 155, 214);
+    padding-top: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+.prima-sezione p{
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 20px;
+    line-height: 2;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 30px;
+}
+
+.prima-sezione a{
+    display: inline-block;
+    background-color: #e22d0e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+/*SECONDA SEZIONE*/
+
+.seconda-sezione{
+    background-color:white;
+    padding: 50px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.seconda-sezione h2{
+    color: rgb(4, 155, 214);
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-weight: bold;
+
+}
+
+.immagine-circolare{
+    flex: 1;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.immagine-circolare img{
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+/*TERZA SEZIONE*/
+
+.terza-sezione{
+    background-color: #e22d0e;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+.testo-bianco{
+    padding-bottom: 40px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.testo-bianco-corsivo{
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
