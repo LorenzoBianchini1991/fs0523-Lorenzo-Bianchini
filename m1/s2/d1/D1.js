@@ -11,25 +11,25 @@ REGOLE
  Elenca e descrivi i principali datatype in JavaScript. Prova a spiegarli come se volessi farli comprendere a un bambino.
 */
 
-Number (Numero): Puoi usare i numeri per fare calcoli matematici come l'addizione e la sottrazione, oppure la moltiplicazione e la divisione.
+//Number (Numero); Puoi usare i numeri per fare calcoli matematici come l'addizione e la sottrazione, oppure la moltiplicazione e la divisione.
 
-String (Stringa): Ogni stringa è una lettera o un numero e puoi usarle per creare parole o frasi. Ad esempio, "cane" è una stringa.
+//String (Stringa); Ogni stringa è una lettera o un numero e puoi usarle per creare parole o frasi. Ad esempio, "cane" è una stringa.
 
-Boolean (Booleano): Un booleano può essere vero (acceso) o falso (spento). Ad esempio, "Il sole è caldo" potrebbe essere vero, mentre "La luna è un formaggio" è falso.
+//Boolean (Booleano); Un booleano può essere vero (acceso) o falso (spento). Ad esempio, "Il sole è caldo" potrebbe essere vero, mentre "La luna è un formaggio" è falso.
 
-Array: Un array è come una scatola di giocattoli con molti scomparti. Puoi mettere diversi oggetti in ciascun scomparto e poi prenderli quando vuoi. Ad esempio, potresti avere un array di nomi di amici.
+//Array; Un array è come una scatola di giocattoli con molti scomparti. Puoi mettere diversi oggetti in ciascun scomparto e poi prenderli quando vuoi. Ad esempio, potresti avere un array di nomi di amici.
 
-Object (Oggetto): Ogni oggetto ha un nome e delle caratteristiche. Ad esempio, un oggetto "auto" potrebbe avere un nome come "Ferrari" e caratteristiche come il colore e la velocità.
+//Object (Oggetto); Ogni oggetto ha un nome e delle caratteristiche. Ad esempio, un oggetto "auto" potrebbe avere un nome come "Ferrari" e caratteristiche come il colore e la velocità.
 
-Null (Nullo): Null è come una scatola vuota. Non c'è niente dentro, ma puoi metterci qualcosa in futuro se vuoi.
+//Null (Nullo): Null è come una scatola vuota. Non c'è niente dentro, ma puoi metterci qualcosa in futuro se vuoi.
 
-Undefined (Non definito): Una variabile è "non definita" quando non è stata assegnata alcun valore o quando è stata dichiarata ma non è stata inizializzata con un valore.
+//Undefined (Non definito): Una variabile è "non definita" quando non è stata assegnata alcun valore o quando è stata dichiarata ma non è stata inizializzata con un valore.
 
 /* ESERCIZIO 2
  Crea una variable chiamata "name" e assegna ad essa il tuo nome, sotto forma di stringa.
 */
 
-var nome = "Lorenzo"
+var name = "Lorenzo"
 
 /* ESERCIZIO 3
  Scrivi il codice necessario ad effettuare un addizione (una somma) dei numeri 12 e 20.
