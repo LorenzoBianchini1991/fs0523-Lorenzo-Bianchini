@@ -115,7 +115,7 @@ const characters = [];
 
 for (let i = 0; i < starWarsCharacters.length; i++) {
   characters.push(starWarsCharacters[i].name);
-
+}
 /* ESERCIZIO 3
   Seguendo i passaggi precedenti crea un nuovo array chiamato "femaleCharacters" e inserisci al suo interno tutti gli oggetti femminili.
 */
@@ -162,8 +162,6 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
       break;
     case "blue-gray":
       eyeColor["blue-gray"].push(character);
-      break;
-    default:
       break;
   }
 }
@@ -224,9 +222,3 @@ for (let i = 0; i < femaleCharacters.length; i++) {
   const femaleCharacterName = femaleCharacters[i].name;
   characters = characters.filter((characterName) => characterName !== femaleCharacterName);
 }
-
-
-/* --EXTRA-- ESERCIZIO 10
-  Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
-*/
-  
