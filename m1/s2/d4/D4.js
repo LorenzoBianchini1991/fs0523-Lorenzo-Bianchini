@@ -5,7 +5,7 @@
 function area(l1, l2) {
     var area_rettangolo = l1 * l2;
     return area_rettangolo;
-  }
+}
 
 
 /* ESERCIZIO 2
@@ -20,7 +20,7 @@ function crazySum(num1, num2) {
     } else {
       return num1 + num2;
     }
-  }
+}
 
 /* ESERCIZIO 3
  Scrivi una funzione di nome "crazyDiff" che calcola la differenza assoluta tra un numero fornito come parametro e 19.
@@ -35,7 +35,19 @@ function crazyDiff(numero) {
     } else {
       return differenza;
     }
-  }
+}
+
+/*
+var numero = 15;
+var risultato = crazyDiff(numero);
+console.log(crazyDiff(15)); 
+*/
+/*
+var numero = 25;
+var risultato = crazyDiff(numero);
+console.log(crazyDiff(25)); 
+*/
+
 
 /* ESERCIZIO 4
  Scrivi una funzione di nome "boundary" che accetta un numero intero n come parametro, e ritorna true se n è compreso tra 20 e 100 (incluso) oppure
