@@ -1,0 +1,77 @@
+body {
+    font-family: 'Indie Flower', cursive;
+}
+
+:root {
+    --giallo: #fefece;
+    --verde: #ccfece;
+    --viola: #cacafa;
+}
+
+.lavagna {
+    position: relative;
+    width: auto; 
+    background-color: #f0f0f0;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+
+.row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.postit {
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    border: 2px solid #000;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 40px 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.task {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-weight: lighter;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.giallo {
+    background-image: linear-gradient(var(--giallo) 0%, var(--giallo) 75%, #bdbda3 90%, #bdbda3 100%);
+    transform: rotate(-10deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.verde {
+    background-image: linear-gradient(var(--verde) 0%, var(--verde) 75%, #a1b8a1 90%, #a1b8a1 100%);
+    transform: rotate(10deg); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);transform: rotate(10deg); 
+}
+
+.viola {
+    background-image: linear-gradient(var(--viola) 0%, var(--viola) 75%, #8b8c9b 90%, #8b8c9b 100%);
+    transform: rotate(-15deg); 
+    transform: rotate(-15deg); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
+}
+
+.postit:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
+}
+
