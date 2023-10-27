@@ -45,5 +45,5 @@ body {
 
 .parole i:hover {
     opacity: 0;
-    transform: translateY(-500px);
+    transform: translateY(50%);
 }
