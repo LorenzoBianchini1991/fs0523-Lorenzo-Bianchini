@@ -1,0 +1,33 @@
+@import 'colors'; // Importa le variabili dei colori
+
+@mixin button-styles($color) {
+//FIRST BUTTON
+  &.btn-primary {
+    background-color: $color;
+    color: white;
+  }
+//SECOND BUTTON
+  &.btn-secondary {
+    background-color: lighten($color, 20%);
+    color: $color;
+  }
+//THIRD BUTTON
+  &.btn-tertiary {
+    background-color: transparent;
+    color: $color;
+    border: 1px solid $color;
+  }
+}
+
+// MIXIN
+.btn {
+  @include button-styles($color-bottoni1); // Primo colore 
+}
+
+.btn.btn2 {
+  @include button-styles($color-bottoni2); // Secondo colore
+}
+
+.btn.btn3 {
+  @include button-styles($color-bottoni3); // Terzo colore
+}

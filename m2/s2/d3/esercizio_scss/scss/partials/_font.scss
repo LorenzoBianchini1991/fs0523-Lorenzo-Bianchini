@@ -1,0 +1,9 @@
+$font-family-primary: 'Arial', sans-serif;
+$font-family-secondary: 'Helvetica', sans-serif;
+$font-size-base: 18px;
+$font-size-big: 102px;
+
+@mixin title-big {
+  font-size: $font-size-big;
+  font-weight: bold;
+}

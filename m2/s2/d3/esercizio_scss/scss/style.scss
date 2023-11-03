@@ -1,0 +1,100 @@
+//RESET
+@import "partials/reset";
+
+//COLORS
+@import "partials/colors";
+
+//FONT
+@import "partials/font";
+
+//SPACINGS
+@import "partials/spacings";
+
+//BUTTONS
+@import "partials/buttons";
+
+//MIXINS
+@import "partials/mixins";
+
+//ANIMATIONS
+@import "partials/animations";
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $bg_hero;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+}
+
+.links {
+    display: flex;
+    align-items: center;    
+}
+
+a{
+    margin-left: 40px;
+    text-decoration: none;
+    color: $color-testo;    
+}
+
+.big-text {
+    font-family: $font-family-secondary;
+    font-size: $font-size-big;
+    font-weight: bolder;
+    color: #1c0535;    
+}
+
+.small-text {
+    color: $color-testo;  
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+}
+
+.colored-button {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 10px;
+}
+  
+.colored-button .btn-discover a {
+    display: block;
+    background-color: $color-bottoni1;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin: 0 4px;
+}
+  
+.colored-button .btn-login a {
+    display: block;
+    background-color: $color-bottoni2;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin: 0 4px;
+}
+  
+.colored-button .btn-contact a {
+    display: block;
+    background-color: $color-bottoni3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin: 0 4px;
+}
+

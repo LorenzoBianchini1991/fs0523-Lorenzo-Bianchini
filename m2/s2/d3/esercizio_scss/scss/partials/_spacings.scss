@@ -1,0 +1,80 @@
+$spacings: (
+  sm: 5px,
+  normal: 10px,
+  md: 15px,
+  g: 20px,
+  x: 25px,
+  xxl: 30px
+);
+
+// MIXIN
+@mixin generate-spacing-classes($type, $direction, $size) {
+  $property: if($type == 'padding', 'padding', 'margin');
+  $class-name: if($type == 'padding', 'p', 'm');
+
+  @each $name, $value in $spacings {
+    .#{$property}-#{$class-name}-#{$direction}-#{$name}-#{$size} {
+      @if ($direction == 'top') {
+        #{$property}-top: $value;
+      } @else if ($direction == 'bottom') {
+        #{$property}-bottom: $value;
+      } @else if ($direction == 'left') {
+        #{$property}-left: $value;
+      } @else if ($direction == 'right') {
+        #{$property}-right: $value;
+      }
+    }
+  }
+}
+
+// PADDING
+@include generate-spacing-classes('padding', 'top', 'sm');
+@include generate-spacing-classes('padding', 'top', 'normal');
+@include generate-spacing-classes('padding', 'top', 'md');
+@include generate-spacing-classes('padding', 'top', 'g');
+@include generate-spacing-classes('padding', 'top', 'x');
+@include generate-spacing-classes('padding', 'top', 'xxl');
+@include generate-spacing-classes('padding', 'bottom', 'sm');
+@include generate-spacing-classes('padding', 'bottom', 'normal');
+@include generate-spacing-classes('padding', 'bottom', 'md');
+@include generate-spacing-classes('padding', 'bottom', 'g');
+@include generate-spacing-classes('padding', 'bottom', 'x');
+@include generate-spacing-classes('padding', 'bottom', 'xxl');
+@include generate-spacing-classes('padding', 'left', 'sm');
+@include generate-spacing-classes('padding', 'left', 'normal');
+@include generate-spacing-classes('padding', 'left', 'md');
+@include generate-spacing-classes('padding', 'left', 'g');
+@include generate-spacing-classes('padding', 'left', 'x');
+@include generate-spacing-classes('padding', 'left', 'xxl');
+@include generate-spacing-classes('padding', 'right', 'sm');
+@include generate-spacing-classes('padding', 'right', 'normal');
+@include generate-spacing-classes('padding', 'right', 'md');
+@include generate-spacing-classes('padding', 'right', 'g');
+@include generate-spacing-classes('padding', 'right', 'x');
+@include generate-spacing-classes('padding', 'right', 'xxl');
+
+// MARGIN
+@include generate-spacing-classes('margin', 'top', 'sm');
+@include generate-spacing-classes('margin', 'top', 'normal');
+@include generate-spacing-classes('margin', 'top', 'md');
+@include generate-spacing-classes('margin', 'top', 'g');
+@include generate-spacing-classes('margin', 'top', 'x');
+@include generate-spacing-classes('margin', 'top', 'xxl');
+@include generate-spacing-classes('margin', 'bottom', 'sm');
+@include generate-spacing-classes('margin', 'bottom', 'normal');
+@include generate-spacing-classes('margin', 'bottom', 'md');
+@include generate-spacing-classes('margin', 'bottom', 'g');
+@include generate-spacing-classes('margin', 'bottom', 'x');
+@include generate-spacing-classes('margin', 'bottom', 'xxl');
+@include generate-spacing-classes('margin', 'left', 'sm');
+@include generate-spacing-classes('margin', 'left', 'normal');
+@include generate-spacing-classes('margin', 'left', 'md');
+@include generate-spacing-classes('margin', 'left', 'g');
+@include generate-spacing-classes('margin', 'left', 'x');
+@include generate-spacing-classes('margin', 'left', 'xxl');
+@include generate-spacing-classes('margin', 'right', 'sm');
+@include generate-spacing-classes('margin', 'right', 'normal');
+@include generate-spacing-classes('margin', 'right', 'md');
+@include generate-spacing-classes('margin', 'right', 'g');
+@include generate-spacing-classes('margin', 'right', 'x');
+@include generate-spacing-classes('margin', 'right', 'xxl');

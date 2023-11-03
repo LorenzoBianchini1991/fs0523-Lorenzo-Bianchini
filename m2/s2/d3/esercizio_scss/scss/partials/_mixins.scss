@@ -1,0 +1,25 @@
+//FLOATING MIXIN
+@mixin floating($border-radius: null, $box-shadow: null, $border: null) {
+    @if $border-radius {
+      border-radius: $border-radius;
+    }
+  
+    @if $box-shadow {
+      box-shadow: $box-shadow;
+    }
+  
+    @if $border {
+      border: $border;
+    }
+  }
+
+//GRID MIXIN
+@mixin grid($elements-per-line) {
+    display: flex;
+    flex-wrap: wrap;
+    $element-width: 100% / $elements-per-line;
+    > * {
+      width: $element-width;
+      box-sizing: border-box;
+    }
+  }

@@ -1,0 +1,14 @@
+@mixin custom-animation($name, $duration, $start-point, $end-point, $delay) {
+    @keyframes #{$name} {
+      from {
+        opacity: 0;
+        transform: translateY(-#{$start-point});
+      }
+      to {
+        opacity: 1;
+        transform: translateY(#{$end-point});
+      }
+    }
+                                  
+    animation: $name $duration ease $delay;
+  }
