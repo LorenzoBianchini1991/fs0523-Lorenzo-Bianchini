@@ -69,24 +69,21 @@
     </nav>
 
     <div class="container-fluid container-main">
-      <!-- TITOLO, DROPDOWN E ICON VISUALIZZAZIONE -->
+      <!-- TITOLO -->
       <div class="row">
         <div class="col-6 d-flex align-items-center">
           <h3 class="tv-shows me-5">TV Shows</h3>
-          <div class="dropdown-box dropdown">
-            <button class="dropdown-toggle-genres" type="button" id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"  data-bs-display="static" aria-expanded="false">
-              Genres
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">1</a></li>
-              <li><a class="dropdown-item" href="#">2</a></li>
-              <li><a class="dropdown-item" href="#">3</a></li>
-              <li><a class="dropdown-item" href="#">4</a></li>
-              <li><a class="dropdown-item" href="#">5</a></li>
-            </ul>
+          <!-- DROPDOWN GENRES-->
+          <div class="dropdown-genres">
+            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
           </div>
         </div>
+          <!-- ICON -->
           <div class="col-6 d-flex justify-content-end align-items-center">
             <div class="icon-container">
               <i class="bi bi-list text-white me-3"></i>
