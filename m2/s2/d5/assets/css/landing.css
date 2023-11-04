@@ -166,6 +166,22 @@ i{
     display: none;
 }
 
+.carousel-control-prev2{
+    display: none;
+}
+
+.carousel-control-next2{
+    display: none;
+}
+
+.carousel-control-prev3{
+    display: none;
+}
+
+.carousel-control-next3{
+    display: none;
+}
+
 .tab-change-btn{
     border: none;
     width: 30px !important;
