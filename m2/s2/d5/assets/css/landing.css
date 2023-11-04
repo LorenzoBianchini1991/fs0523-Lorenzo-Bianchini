@@ -294,17 +294,21 @@ ul{
 }
 
 .dropbtn {
-    background-color: #3498DB;
+    background-color: black;
     color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+    padding: 5px 25px;
+    font-size: 14px;
+    border: 1.5px solid rgba(255, 255, 255, 0.603);
     cursor: pointer;
+    align-items: center;
   }
   
   /* Dropdown button on hover & focus */
   .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+    background-color: rgba(229, 9 , 20);
+    color: black;
+    border: 1.5px solid black;
+    font-weight: bold;
   }
   
   /* The container <div> - needed to position the dropdown content */
