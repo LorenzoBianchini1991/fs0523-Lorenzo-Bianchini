@@ -20,3 +20,10 @@ function position(id){
   var card = document.getElementsByClassName('card')[id];
   console.log(id)
 }
+
+// DROPDOWN TOGGLE GENRES
+
+var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle-genres'))
+var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+  return new bootstrap.Dropdown(dropdownToggleEl)
+})
