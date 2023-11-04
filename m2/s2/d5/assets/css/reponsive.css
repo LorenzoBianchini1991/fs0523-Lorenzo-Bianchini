@@ -2,31 +2,56 @@
     .netflix-padding-left{
         padding-left: 10px !important;
     }
-    
-    
+
     .netflix-padding-right{
         padding-right: 10px !important;
     }
+
     .navbar-brand img{
         width: 43px;
-   }
-   .navbar{
+    }
+
+    .navbar{
        padding-top: unset !important;
        padding-bottom: unset !important;
-   }
-   i{
+    }
+
+    i{
        font-size: 12px;
        cursor: pointer;
        padding: 5px !important;
-   }
-   .netflix-profile{
+    }
+
+    .netflix-profile{
        margin-left: 5px ;
-   }
-   .netflix-dropdown-box{
-    display: block;
+    }
+
+    .netflix-dropdown-box{
+        display: block;
+    }
+
+    .netflix-nav{
+        display: none !important;
+    }
+
+    .slider-box{
+        height: 20vh !important;
+    }
+
 }
-.netflix-nav{
-    display: none !important;
+
+@media(max-width:1199px){
+    
+    .slider-box{
+        height: 40vh !important;
+    }
+
 }
+
+@media(max-width:795px){
+
+    .netflix-nav button{
+        font-size: 11px;
+    }
 
 }

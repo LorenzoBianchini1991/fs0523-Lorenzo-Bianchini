@@ -279,3 +279,11 @@ ul{
     padding-bottom: 30px;
     align-items: center;
 }
+
+.icon-container{
+    display: flex;
+}
+
+.icon-container i{
+    border: 1px solid #fff;
+}
