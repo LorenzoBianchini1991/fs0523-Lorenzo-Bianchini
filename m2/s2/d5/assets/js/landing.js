@@ -1,3 +1,5 @@
+// NAVBAR
+
 $(document).ready(function(){
     $(window).scroll(function(){
         var scroll = $(window).scrollTop();
@@ -12,6 +14,7 @@ $(document).ready(function(){
 
   })
 
+// CARD
 
 function position(id){
   var card = document.getElementsByClassName('card')[id];

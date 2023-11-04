@@ -1,5 +1,5 @@
 @media(max-width:768px){
-    
+
     .netflix-padding-left{
         padding-left: 10px !important;
     }
@@ -39,12 +39,45 @@
         height: 20vh !important;
     }
 
+    .card-body{
+        width: 80px !important;
+        top: 60px !important;
+    }
+
+    .card-icon{
+        font-size: 8px !important;
+    }
+
+    .netflix-card-text{
+        font-size: 5px !important;
+    }
+
+    .h4{
+        font-size: 14px !important;
+    }
 }
 
 @media(max-width:1199px){
     
     .slider-box{
         height: 40vh !important;
+    }
+
+    .card-body{
+        width: 120px !important;
+        top: 100px;
+    }
+
+    .card-icon{
+        font-size: 12px !important;
+    }
+
+    .netflix-card-text{
+        font-size: 7px;
+    }
+
+    .h4{
+        font-size: 18px;
     }
 
 }
@@ -56,3 +89,25 @@
     }
 
 }
+
+@media(max-width:1000px){
+
+    .card-body{
+        top: 80px;
+    }
+}
+
+@media(max-width:1100px){
+
+    .card-body{
+        top: 90px;
+    }
+}
+
+@media(max-width:900px){
+    
+    .card-body{
+        top: 70px;
+    }
+}
+
