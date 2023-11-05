@@ -12,6 +12,14 @@ body{
     padding-right: 57px;
 }
 
+.row{
+    padding-top: 80px;
+    margin-left: 50px;
+    margin-right: 5px;
+    padding-bottom: 30px;
+    align-items: center;
+}
+
 /* NAV BAR */
 
 .netflix-navbar{
@@ -187,52 +195,6 @@ i{
     margin-right: 100px;
 }
 
-/* FOOTER */
-
-.footer{
-    margin-top: 150px;
-    margin-bottom: 100px;
-}
-
-ul{
-    list-style: none;
-    font-size: 15px ;
-    color: rgba(255, 255, 255, 0.367);
-    font-weight: 100;
-}
-
-.service-btn{
-    background-color: transparent;
-     margin-left: 30px;
-      color: rgba(255, 255, 255, 0.367);
-      border: 1px solid rgba(255, 255, 255, 0.367);
-      font-size: 15px;
-      font-weight: 100;
-}
-
-.copy-right{
-    font-size: 15px;
-      font-weight: 200;
-      color: rgb(249, 14, 14);
-      margin-left: 28px;
-}
-
-.row{
-    padding-top: 80px;
-    margin-left: 50px;
-    margin-right: 5px;
-    padding-bottom: 30px;
-    align-items: center;
-}
-
-.icon-container{
-    display: flex;
-}
-
-.icon-container i{
-    border: 1px solid #fff;
-}
-
 /* DROPDOWN NAVBAR SX */
 
 .netflix-dropdown-box{
@@ -334,3 +296,60 @@ ul{
 .dropbtn-content a:hover {background-color: #343a40;}
   
 .show {display:block;}
+
+/* FOOTER */
+
+.footer{
+    margin: 0px 300px;
+    margin-top: 100px;
+}
+
+ul{
+    list-style: none;
+    font-size: 13px ;
+    color: rgba(255, 255, 255, 0.367);
+    font-weight: 100;
+    font-weight: bold;
+}
+
+.copy-right{
+    font-size: 12px;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.367);
+    margin-left: 33px;
+    font-weight: bold;
+}
+
+.icon-container{
+    display: flex;
+}
+
+.icon-container i{
+    border: 1px solid #fff;
+}
+
+.footer-button {
+    
+}
+
+.Service Code {
+    
+
+}
+
+.service-button {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.367);
+    border: 1px solid rgba(255, 255, 255, 0.367);
+    font-size: 13px;
+    font-weight: 100;
+    padding: 5px 10px;
+    margin-left: 35px;
+    font-weight: bold;
+}
+
+.link-footer {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.367);
+
+}
