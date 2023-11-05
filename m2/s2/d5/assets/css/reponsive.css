@@ -9,7 +9,8 @@
     }
 
     .navbar-brand img{
-        width: 43px;
+        width: 80px;
+        margin-left: 40px;
     }
 
     .navbar{
@@ -29,6 +30,10 @@
 
     .netflix-dropdown-box{
         display: block;
+    }
+
+    .netflix-dropdown{
+        font-size: 8px;
     }
 
     .netflix-nav{
@@ -53,7 +58,20 @@
     }
 
     .h4{
-        font-size: 14px !important;
+        font-size: 10px !important;
+    }
+
+    .tv-shows{
+        font-size: 18px !important;
+    }
+
+    .dropbtn{
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+
+    .dropbtn-content{
+        font-size: 8px;
     }
 }
 
@@ -77,7 +95,11 @@
     }
 
     .h4{
-        font-size: 18px;
+        font-size: 14px;
+    }
+
+    .tv-shows{
+        font-size: 28px;
     }
 
 }
@@ -105,7 +127,7 @@
 }
 
 @media(max-width:900px){
-    
+
     .card-body{
         top: 70px;
     }
