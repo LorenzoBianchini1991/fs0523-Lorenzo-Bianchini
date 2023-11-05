@@ -4,6 +4,10 @@ body{
     width: 100vw;
 }
 
+main{
+    color: white;
+}
+
 
 /* NETFLIX LOGO */
 
@@ -22,3 +26,89 @@ body{
 
 /* EDIT PROFILE */
 
+.main-container{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.settings-title{
+    text-align: start;
+    margin-top: 80px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.settings-title h3{
+    font-size: 50px;
+}
+
+.linea{
+    border: none;
+    background-color: rgba(255, 255, 255, 0.367);
+    height: 0.5px;
+    width: 100%;
+    position: absolute;
+    top: 80%;
+}
+
+/* IMMAGINE, CAMPO TESTUALE E SCELTA LINGUA */
+
+.img-profile {
+    display: flex;
+    align-items: flex-start;
+}
+
+.immagine {
+    position: relative;
+    flex: 0 0 auto; 
+}
+
+.immagine img {
+    width: 100%; 
+    border-radius: 5px;
+    height: 120px;
+    display: block;
+}
+
+.icona-bi-pencil {
+    position: absolute;
+    top: 75%; 
+    right: 75%; 
+    font-size: 14px; 
+    color: rgb(255, 255, 255);
+}
+
+.username {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"] {
+    width: 300px;
+    height: 30px;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.367);
+    color: white;
+    padding: 20px;
+
+    border: none;
+    align-self: flex-start;
+}
+
+input[type="text"]::placeholder {
+    color: white;
+}
+
+.select-language {
+    margin-top: auto; /* Spinge il menu in basso fino all'estremità della colonna */
+}
+
+select {
+    width: 200px;
+    padding: 8px;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.367);
+    border: none;
+}
