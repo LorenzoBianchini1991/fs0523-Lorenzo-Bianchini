@@ -73,6 +73,14 @@
     .dropbtn-content{
         font-size: 8px;
     }
+
+    .row-ul{
+        margin-right: 200px !important;  
+    }
+
+    .footer{
+        margin-left: 100px !important;
+    }
 }
 
 @media(max-width:1199px){
@@ -101,7 +109,14 @@
     .tv-shows{
         font-size: 28px;
     }
+    
+    .row-ul{
+        margin-right: 100px;  
+    }
 
+    .footer{
+        margin-left: 100px;
+    }
 }
 
 @media(max-width:795px){
