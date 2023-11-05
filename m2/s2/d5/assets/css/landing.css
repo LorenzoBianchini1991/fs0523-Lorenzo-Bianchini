@@ -1,18 +1,18 @@
-body{
+body {
     background-color: #141414;
     overflow-x: hidden;
     width: 100vw;
 }
 
-.netflix-padding-left{
+.netflix-padding-left {
     padding-left: 57px;
 }
 
-.netflix-padding-right{
+.netflix-padding-right {
     padding-right: 57px;
 }
 
-.row{
+.row {
     padding-top: 80px;
     margin-left: 50px;
     margin-right: 5px;
@@ -22,41 +22,41 @@ body{
 
 /* NAV BAR */
 
-.netflix-navbar{
+.netflix-navbar {
     z-index: 1000;
     transition: background 0.2s linear;
     position: fixed;
     width: 100vw;
 }
 
-.navbar-brand img{
+.navbar-brand img {
      width: 100px;
 }
 
-.netflix-row{
+.netflix-row {
     width: 100%;
     display: flex;
     justify-content: space-between !important;
     align-items: center;
 }
 
-.netflix-row .left{
+.netflix-row .left {
     width: max-content
 }
 
-.netflix-row .right{
+.netflix-row .righ t{
     width: max-content
 }
 
 /* NAVBAR DX */
 
-i{
+i {
     font-size: 20px;
     color: #fff;
     padding: 5px 20px;
 }
 
-.netflix-profile{
+.netflix-profile {
     width: 30px;
     height: 30px;
     background-color: gray;
@@ -65,25 +65,25 @@ i{
     cursor: pointer;
 }
 
-.netflix-nav{
+.netflix-nav {
     display: block ;
     align-items: center;
 }
 
-.netflix-nav button{
+.netflix-nav button {
     background-color: transparent;
     color: rgba(255, 255, 255, 0.623);
     border: none;
     font-size: 13px;
 }
 
-.netflix-nav button:hover{
+.netflix-nav button:hover {
     color: #fff;
 }
 
 /* SLIDER */
 
-.slider-box{
+.slider-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
@@ -91,36 +91,36 @@ i{
     padding-left: 50px;
 }
 
-.slider{
+.slider {
     margin-bottom: 10px;
 }
 
-.slider2{
+.slider2 {
     margin-bottom: 10px;
 }
 
-.slider3{
+.slider3 {
     margin-bottom: 10px;
 }
 
 
-.position-slider2{
+.position-slider2 {
     top: 10px !important;
     position: absolute !important;
 }
 
-.margin-title2{
+.margin-title2 {
     margin-top: 33px;
 }
 
-.position-slider3{
+.position-slider3 {
     top: 10px !important;
     position: absolute !important;
 }
 
 /* CARD */
 
-.card{
+.card {
     width: 250px;
     background-color: #141414;
     border-radius: 4px;
@@ -129,12 +129,12 @@ i{
     position: relative;
 }
 
-.card:hover{
+.card:hover {
     transform: scaleX(1.4) scaleY(1.4);
     z-index: 10;
 }
 
-.card-body{
+.card-body {
     display: none;
     padding: 10px 15px;
     position: absolute;
@@ -143,7 +143,7 @@ i{
     width: 100%;
 }
 
-.card-icon{
+.card-icon {
     color: #fff;
     padding: 0px !important;
     font-size: 28px;
@@ -151,64 +151,64 @@ i{
     cursor: pointer;
 }
 
-.card:hover > .card-body{
+.card:hover > .card-body {
     display: block;
     height: max-content !important;
 }
 
-.netflix-card-text{
+.netflix-card-text {
     font-size: 12px ;
 }
 
 /* CAROUSEL */
 
-.carousel-control-prev{
+.carousel-control-prev {
     display: none;
 }
 
-.carousel-control-next{
+.carousel-control-next {
     display: none;
 }
 
-.carousel-control-prev2{
+.carousel-control-prev2 {
     display: none;
 }
 
-.carousel-control-next2{
+.carousel-control-next2 {
     display: none;
 }
 
-.carousel-control-prev3{
+.carousel-control-prev3 {
     display: none;
 }
 
-.carousel-control-next3{
+.carousel-control-next3 {
     display: none;
 }
 
-.tab-change-btn{
+.tab-change-btn {
     border: none;
     width: 30px !important;
 }
 
-.margin-right{
+.margin-right {
     margin-right: 100px;
 }
 
 /* DROPDOWN NAVBAR SX */
 
-.netflix-dropdown-box{
+.netflix-dropdown-box {
     display: none;
 }
 
-.netflix-dropdown{
+.netflix-dropdown {
     background-color: transparent;
     color: #fff;
     border: none;
     font-size: 9px !important;
 }
 
-.netflix-dropdown-box .dropdown-menu{
+.netflix-dropdown-box .dropdown-menu {
     background-color: rgba(0, 0, 0, 0.784);
     font-size: 9px !important;
     color: #fff !important;
@@ -217,7 +217,7 @@ i{
     margin-top: 30px;
 }
 
-.netflix-dropdown-box .dropdown-menu .dropdown-item{
+.netflix-dropdown-box .dropdown-menu .dropdown-item {
      color: rgba(255, 255, 255, 0.646);
      text-align: center;
      width: 250px;
@@ -225,7 +225,7 @@ i{
      padding: 10px 20px;
 }
 
-.netflix-dropdown-box .dropdown-menu .dropdown-item:hover{
+.netflix-dropdown-box .dropdown-menu .dropdown-item:hover {
     background-color: rgba(255, 255, 255, 0.133);
     color: #fff;
 }
@@ -278,7 +278,7 @@ i{
     display: inline-block;
 }
   
-.dropbtn-content{
+.dropbtn-content {
     display: none;
     position: absolute;
     background-color: #1a1a1a;
@@ -299,57 +299,87 @@ i{
 
 /* FOOTER */
 
-.footer{
+.footer {
     margin: 0px 300px;
     margin-top: 100px;
 }
 
-ul{
+.row-ul {
+    margin-left: 84px;
+    margin-right: 200px;
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.row-service-button {
+    padding-top: 10px;
+    margin-left: 50px;
+    margin-right: 5px;
+    align-items: center;
+}
+
+.row-copiright {
+    padding-top: 20px;
+    margin-left: 50px;
+    margin-right: 5px;
+    align-items: center;
+}
+
+ul {
     list-style: none;
-    font-size: 13px ;
+    font-size: 10px ;
     color: rgba(255, 255, 255, 0.367);
     font-weight: 100;
     font-weight: bold;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.copy-right{
-    font-size: 12px;
+.copyright {
+    font-size: 10px;
     font-weight: 200;
     color: rgba(255, 255, 255, 0.367);
     margin-left: 33px;
     font-weight: bold;
 }
 
-.icon-container{
-    display: flex;
-}
-
-.icon-container i{
-    border: 1px solid #fff;
-}
-
-.footer-button {
-    
-}
-
-.Service Code {
-    
-
-}
-
 .service-button {
     background-color: transparent;
     color: rgba(255, 255, 255, 0.367);
     border: 1px solid rgba(255, 255, 255, 0.367);
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 100;
     padding: 5px 10px;
     margin-left: 35px;
     font-weight: bold;
 }
 
+.service-button:hover a {
+    color: rgba(255, 255, 255, 0.367); 
+}
+
 .link-footer {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.367);
 
+}
+
+.li {
+    margin: 0;
+}
+
+.social-icons {
+    margin-bottom: 15px;
+    margin-left: 65px;
+}
+
+.social-icons i {
+    color: rgba(255, 255, 255, 0.367);
+    font-size: 26px;
+}
+
+ul li:not(:last-child) {
+    margin-bottom: 10px;
 }
