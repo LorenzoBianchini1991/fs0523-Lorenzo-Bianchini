@@ -130,7 +130,7 @@ select {
     height: 0.5px;
     width: 100%;
     position: absolute;
-    top: 39%;
+    top: 130px;
     margin-left: 30px;
 }
 
@@ -143,22 +143,24 @@ select {
 
 .maturity-settings h4 {
     font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .maturity-settings h5 {
-    font-size: 16px;
+    font-size: 14px;
 }
 
-.maturity-btn, .edit-btn {
-    background-color: gray;
+.maturity-btn {
+    background-color: rgba(255, 255, 255, 0.089);
     color: white;
-    border: 1px solid gray;
-    padding: 10px 20px;
+    border: none;
+    padding: 5px 15px;
     margin: 5px;
-}
-
-.edit-btn {
-    color: darkgray;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    margin-left: -0.5px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .separator2 {
@@ -167,7 +169,14 @@ select {
     height: 0.5px;
     width: 100%;
     position: absolute;
-    top: 350px;
+    top: 340px;
     margin-left: 30px;
 }
 
+.edit-btn {
+    background-color: #141414;
+    color: rgba(255, 255, 255, 0.367);
+    border: 1px solid rgba(255, 255, 255, 0.367);
+    padding: 3px 25px;
+    margin-top: 10px;
+}
