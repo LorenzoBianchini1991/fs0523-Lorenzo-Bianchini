@@ -1,0 +1,12 @@
+@media(max-width:768px){
+
+    .netflix-logo{
+        margin-top: 10px;
+        text-align: center;   
+    }
+    
+    .netflix img{
+        width: 120px !important;
+        height: 45px !important;
+    }
+}

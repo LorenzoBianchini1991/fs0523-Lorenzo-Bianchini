@@ -1,0 +1,24 @@
+body{
+    background-color: #141414;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+
+/* NETFLIX LOGO */
+
+.netflix-logo{
+    margin-top: 10px
+}
+
+.netflix{
+    margin-left: 10px;
+}
+
+.netflix img{
+    width: 140px;
+    height: 60px;
+}
+
+/* EDIT PROFILE */
+
