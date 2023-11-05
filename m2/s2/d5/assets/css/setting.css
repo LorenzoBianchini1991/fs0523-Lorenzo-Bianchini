@@ -46,7 +46,7 @@ main{
     border: none;
     background-color: rgba(255, 255, 255, 0.367);
     height: 0.5px;
-    width: 100%;
+    width: 90%;
     position: absolute;
     top: 80%;
 }
@@ -55,7 +55,7 @@ main{
 
 .img-profile {
     display: flex;
-    align-items: flex-start;
+    align-content: center;
 }
 
 .immagine {
@@ -72,28 +72,28 @@ main{
 
 .icona-bi-pencil {
     position: absolute;
-    top: 75%; 
+    top: 25%; 
     right: 75%; 
     font-size: 14px; 
     color: rgb(255, 255, 255);
+    z-index: 1;
 }
 
 .username {
     margin-left: 30px;
     display: flex;
     flex-direction: column;
+    align-self: flex-start;
 }
 
 input[type="text"] {
-    width: 300px;
+    width: 250px;
     height: 30px;
     font-size: 18px;
     background-color: rgba(255, 255, 255, 0.367);
     color: white;
-    padding: 20px;
-
+    padding: 16px;
     border: none;
-    align-self: flex-start;
 }
 
 input[type="text"]::placeholder {
@@ -101,14 +101,73 @@ input[type="text"]::placeholder {
 }
 
 .select-language {
-    margin-top: auto; /* Spinge il menu in basso fino all'estremità della colonna */
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-top: 30px;
+    position: relative;
 }
 
 select {
-    width: 200px;
-    padding: 8px;
-    font-size: 16px;
+    width: 110px;
+    padding: 1px;
+    font-size: 14px;
     color: white;
-    background-color: rgba(255, 255, 255, 0.367);
-    border: none;
+    border: 1px solid white;
+    background-color: black;
+    margin-top: 5px;
 }
+
+.user-details {
+    flex-direction: column;
+    position: relative;
+}
+
+.separator {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.367);
+    height: 0.5px;
+    width: 100%;
+    position: absolute;
+    top: 39%;
+    margin-left: 30px;
+}
+
+/* MATURITY SDETTINGS */
+
+.maturity-settings {
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.maturity-settings h4 {
+    font-size: 24px;
+}
+
+.maturity-settings h5 {
+    font-size: 16px;
+}
+
+.maturity-btn, .edit-btn {
+    background-color: gray;
+    color: white;
+    border: 1px solid gray;
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.edit-btn {
+    color: darkgray;
+}
+
+.separator2 {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.367);
+    height: 0.5px;
+    width: 100%;
+    position: absolute;
+    top: 350px;
+    margin-left: 30px;
+}
+
