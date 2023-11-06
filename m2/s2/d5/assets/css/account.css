@@ -136,3 +136,8 @@ i {
 .main-content {
     padding-top: 50px;
 }
+
+.main-content a {
+    color: blue !important;
+    text-decoration: underline !important;
+  }
