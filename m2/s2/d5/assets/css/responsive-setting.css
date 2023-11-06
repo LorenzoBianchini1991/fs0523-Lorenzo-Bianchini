@@ -27,14 +27,5 @@
         font-size: 14px;
         margin-top: 5px;
     }
-
-    .footer button {
-        padding: 4px 6px !important; 
-    }
-
-    .footer h4,
-    .footer h5 {
-        font-size: 6px !important;
-    }
-
+    
 }

@@ -204,50 +204,7 @@ select {
     margin-left: 10px;
 }
 
-/* FOOTER BUTTON */
 
-.footer {
-    display: flex;
-    background: transparent; 
-    padding: 60px 0; 
-    font-size: 22px;
-}
 
-.footer button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: 1px solid rgba(255, 255, 255, 0.367);
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: rgba(255, 255, 255, 0.367);
-}
 
-.footer button:hover {
-    background-color: white; 
-    color: black;
-}
 
-.save-btn {
-    background-color: transparent; 
-    color: #fff;
-    letter-spacing: 3px;
-}
-
-.cancel-btn {
-    background-color: transparent;
-    color: #fff;
-    letter-spacing: 3px;
-}
-
-.delete-btn {
-    background-color: transparent;
-    color: #fff;
-    letter-spacing: 3px;
-}
-
-.button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-}
