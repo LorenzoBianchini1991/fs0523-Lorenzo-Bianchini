@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM ANIMALI DOMESTICI</title>
+</head>
+<body>
+    <h1>Crea oggetti Pet</h1>
+    <form id="petForm">
+        <label for="petName">Nome dell'animale:</label>
+        <input type="text" id="petName" required><br><br>
+
+        <label for="ownerName">Nome del proprietario:</label>
+        <input type="text" id="ownerName" required><br><br>
+
+        <label for="species">Specie:</label>
+        <input type="text" id="species" required><br><br>
+
+        <label for="breed">Razza:</label>
+        <input type="text" id="breed" required><br><br>
+
+        <button type="button" id="addPetButton">Aggiungi Pet</button>
+    </form>
+
+    <h2>Lista degli animali domestici</h2>
+    <ul id="petList"></ul>
+
+
+    <script src="js/object.js"></script>
+</body>
+</html>
