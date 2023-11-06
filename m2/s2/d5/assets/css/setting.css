@@ -71,7 +71,6 @@ main{
 }
 
 .username {
-    margin-left: 30px;
     display: flex;
     flex-direction: column;
     align-self: flex-start;
@@ -95,7 +94,6 @@ input[type="text"]::placeholder {
     align-self: flex-end;
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
     margin-top: 30px;
     position: relative;
 }
@@ -119,7 +117,6 @@ select {
 
 .maturity-settings {
     margin-top: 20px;
-    margin-left: 30px;
 }
 
 .maturity-settings h4 {
@@ -157,7 +154,6 @@ select {
 .additional-text {
     text-align: start;
     margin-top: 20px;
-    margin-left: 30px;
 }
 
 .additional-text h4 {
