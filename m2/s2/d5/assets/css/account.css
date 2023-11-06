@@ -25,7 +25,6 @@ body {
     transition: background 0.2s linear;
     position: fixed;
     width: 100vw;
-    background-color: #141414;
 }
 
 .navbar-brand img {
@@ -78,4 +77,56 @@ i {
 
 .netflix-nav button:hover {
     color: #fff;
+}
+
+/* DROPDOWN NAVBAR SX */
+
+.netflix-dropdown-box {
+    display: none;
+}
+
+.netflix-dropdown {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 9px !important;
+}
+
+.netflix-dropdown-box .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.784);
+    font-size: 9px !important;
+    color: #fff !important;
+    margin-left: -80px;
+    border-top: 3px solid #fff;
+    margin-top: 30px;
+}
+
+.netflix-dropdown-box .dropdown-menu .dropdown-item {
+     color: rgba(255, 255, 255, 0.646);
+     text-align: center;
+     width: 250px;
+     font-size: 15px;
+     padding: 10px 20px;
+}
+
+.netflix-dropdown-box .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.133);
+    color: #fff;
+}
+
+/* DROPDOWN NAVBAR DX */
+
+.custom-dropdown {
+    box-shadow: 0 0.2rem 0.5rem rgba(255, 255, 255, 0.062); 
+    color: white; 
+    border: none; 
+    background-color: #1a1a1a;
+}
+
+.custom-dropdown .dropdown-item {
+    color: white; 
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background-color: #343a40; 
 }
