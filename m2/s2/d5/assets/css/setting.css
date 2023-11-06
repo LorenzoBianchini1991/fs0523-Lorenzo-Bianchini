@@ -42,18 +42,6 @@ main{
     font-size: 50px;
 }
 
-.linea{
-    border: none;
-    background-color: rgba(255, 255, 255, 0.367);
-    height: 0.5px;
-    width: 90%;
-    position: absolute;
-    top: 50px;
-    margin-left: 1px;
-    max-width: 600px;
-    min-width: 375px;
-}
-
 /* IMMAGINE, CAMPO TESTUALE E SCELTA LINGUA */
 
 .img-profile {
@@ -127,16 +115,6 @@ select {
     position: relative;
 }
 
-.separator {
-    border: none;
-    background-color: rgba(255, 255, 255, 0.367);
-    height: 0.5px;
-    width: 100%;
-    position: absolute;
-    top: 130px;
-    margin-left: 30px;
-}
-
 /* MATURITY SDETTINGS */
 
 .maturity-settings {
@@ -166,16 +144,6 @@ select {
     font-size: 14px;
 }
 
-.separator2 {
-    border: none;
-    background-color: rgba(255, 255, 255, 0.367);
-    height: 0.5px;
-    width: 100%;
-    position: absolute;
-    top: 340px;
-    margin-left: 30px;
-}
-
 .edit-btn {
     background-color: #141414;
     color: rgba(255, 255, 255, 0.367);
@@ -200,16 +168,6 @@ select {
 .additional-text .autoplay-controls {
     display: flex;
     align-items: center;
-}
-
-.separator3 {
-    border: none;
-    background-color: rgba(255, 255, 255, 0.367);
-    height: 0.5px;
-    width: 100%;
-    position: absolute;
-    top: 560px;
-    margin-left: 30px;
 }
 
 .checkbox-wrapper {
