@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Contatore del Tempo con sessionStorage</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <h1>Timer</h1>
+    <p>Elapsed time <span id="timer">0</span></p>
+
+    <script>
+
+        function avviaContatore() {
+            let seconds = 0;
+            const timerElement = document.getElementById('timer');
+
+            if (sessionStorage.getItem('tempoTrascorso')) {
+                seconds = parseInt(sessionStorage.getItem('tempoTrascorso'));
+            }
+
+            const interval = setInterval(function() {
+                seconds++;
+                timerElement.textContent = seconds + ' seconds';
+                sessionStorage.setItem('tempoTrascorso', seconds);
+            }, 1000);
+
+            window.onbeforeunload = function() {
+                clearInterval(interval);
+            };
+        }
+
+        avviaContatore();
+
+    </script>
+
+</body>
+</html>

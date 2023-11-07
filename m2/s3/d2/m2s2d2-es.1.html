@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Form di Registrazione</title>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 20px;
+            margin: 5px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+    <h1>Registrazione</h1>
+    <div>
+        <p>Previus name: <span id="savedName"></span></p>
+        <input type="text" id="nameInput" placeholder="Inserisci il tuo nome">
+        <br>
+        <button onclick="salvaNome()">Save</button>
+        <button onclick="rimuoviNome()">Delete</button>
+    </div>
+
+
+    <script>
+        
+        function salvaNome() {
+            const nome = document.getElementById('nameInput').value;
+            if (nome.trim() !== '') {
+                localStorage.setItem('nomeUtente', nome);
+                mostraNomeSalvato();
+            } else {
+                alert("Inserisci un nome valido.");
+            }
+        }
+
+        function rimuoviNome() {
+            localStorage.removeItem('nomeUtente');
+            mostraNomeSalvato();
+        }
+
+        function mostraNomeSalvato() {
+            const nomeSalvato = localStorage.getItem('nomeUtente');
+            const savedNameElement = document.getElementById('savedName');
+            if (nomeSalvato) {
+                savedNameElement.textContent = nomeSalvato;
+            } else {
+                savedNameElement.textContent = 'Nessun nome salvato.';
+            }
+        }
+
+        mostraNomeSalvato();
+
+    </script>
+
+</body>
+</html>
