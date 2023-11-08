@@ -7,17 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
-        .card {
+
+        .card-body {
             height: 100%;
         }
 
         .card img {
             height: 300px;
         }
+
     </style>
 </head>
 
 <body>
+
     <template id="card-template">
         <div class="card col-6 col-md-4 col-lg-3 mb-4">
             <img class="card-img-top" alt="">
@@ -33,81 +36,85 @@
     <div class="container">
         <div class="row" id="booksRow"></div>
     </div>
+    <ul id="cart" class="list-group"></ul>
     
     <script>
-        async function fetchBooks() {
-            try {
-                const response = await fetch('https://striveschool-api.herokuapp.com/books');
-                const data = await response.json();
-                const booksRow = document.getElementById('booksRow');
-                const cardTemplate = document.getElementById('card-template');
 
-                data.forEach(book => {
-                    const card = cardTemplate.content.cloneNode(true);
+async function fetchBooks() {
+        try {
+            const response = await fetch('https://striveschool-api.herokuapp.com/books');
+            const data = await response.json();
+            const booksRow = document.getElementById('booksRow');
+            const cardTemplate = document.getElementById('card-template');
 
-                    card.querySelector('.card-img-top').setAttribute('src', book.img);
-                    card.querySelector('.card-img-top').setAttribute('alt', book.title);
-                    card.querySelector('.card-title').innerText = book.title;
-                    card.querySelector('.card-text').innerText = `Prezzo: ${book.price} €`;
+            data.forEach(book => {
+                const card = cardTemplate.content.cloneNode(true);
 
-                    const buyButton = card.querySelector('.buy-btn');
-                    buyButton.addEventListener('click', () => addToCart(book.title, book.price));
+                card.querySelector('.card-img-top').setAttribute('src', book.img);
+                card.querySelector('.card-img-top').setAttribute('alt', book.title);
+                card.querySelector('.card-title').innerText = book.title;
+                card.querySelector('.card-text').innerText = `Prezzo: ${book.price} €`;
 
-                    const removeButton = card.querySelector('.remove-btn');
-                    removeButton.addEventListener('click', () => removeCard(card));
+                const buyButton = card.querySelector('.buy-btn');
+                buyButton.addEventListener('click', () => addToCart(book.title, book.price));
 
-                    booksRow.appendChild(card);
-                });
-            } catch (error) {
-                console.error('Si è verificato un errore:', error);
-            }
-        }
+                const removeButton = card.querySelector('.remove-btn');
+                removeButton.addEventListener('click', () => removeCard(removeButton));
 
-        function addToCart(title, price) {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-            cart.push({ title, price });
-            localStorage.setItem('cart', JSON.stringify(cart));
-    
-            updateCartView();
-        }
-    
-        function removeFromCart(index) {
-            const cart = JSON.parse(localStorage.getItem('cart'));
-    
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-    
-            updateCartView();
-        }
-    
-        function updateCartView() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartElement = document.getElementById('cart');
-    
-            cartElement.innerHTML = '';
-    
-            cart.forEach((item, index) => {
-                const li = document.createElement('li');
-                li.classList.add('list-group-item');
-                li.innerHTML = `${item.title} - Prezzo: ${item.price} € 
-                    <button onclick="removeFromCart(${index})" class="btn btn-danger btn-sm">Rimuovi</button>`;
-                cartElement.appendChild(li);
+                booksRow.appendChild(card);
             });
+        } catch (error) {
+            console.error('Si è verificato un errore:', error);
         }
-    
-        function removeCard(button) {
-            const card = button.closest('.col-md-3');
-            card.remove();
-        }
-    
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchBooks();
-            updateCartView();
+    }
+
+    function addToCart(title, price) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        cart.push({ title, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        updateCartView();
+    }
+
+    function removeFromCart(index) {
+        const cart = JSON.parse(localStorage.getItem('cart'));
+
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        updateCartView();
+    }
+
+    function updateCartView() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartElement = document.getElementById('cart');
+
+        cartElement.innerHTML = '';
+
+        cart.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.classList.add('list-group-item');
+            li.innerHTML = `${item.title} - Prezzo: ${item.price} € 
+                <button onclick="removeFromCart(${index})" class="btn btn-danger btn-sm">Rimuovi</button>`;
+            cartElement.appendChild(li);
         });
+    }
+
+    function removeCard(button) {
+    const card = button.closest('.card');
+    card.remove();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchBooks();
+        updateCartView();
+    });
+
     </script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
