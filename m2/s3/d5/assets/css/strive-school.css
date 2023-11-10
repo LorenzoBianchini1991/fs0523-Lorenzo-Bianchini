@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  section {
+    margin-bottom: 30px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+  }
+  
+  #productDetails {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  

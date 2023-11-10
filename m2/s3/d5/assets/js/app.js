@@ -1,0 +1,6 @@
+// Contenuto comune a tutte le pagine
+function changePage(pageName) {
+    // ... codice comune per cambiare la visualizzazione tra le pagine ...
+  }
+  
+  // ... eventuali funzioni e codice comune ...

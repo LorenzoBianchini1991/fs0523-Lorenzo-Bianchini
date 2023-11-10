@@ -1,0 +1,3 @@
+function createProduct() {
+    // ... codice specifico per la creazione di un prodotto ...
+  }

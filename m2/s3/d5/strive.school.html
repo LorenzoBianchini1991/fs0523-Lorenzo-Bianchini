@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/strive-school.css">
+  <title>Strive School Products</title>
+</head>
+<body>
+  <header>
+    <h1>Online Shop</h1>
+  </header>
+
+  <main>
+    <section id="backOffice">
+      <!-- Form per inserire i prodotti nel back-office -->
+      <h2>Back Office</h2>
+      <form id="productForm">
+        <!-- Input per i parametri del prodotto -->
+        <label for="productName">Nome:</label>
+        <input type="text" id="productName" required>
+
+        <label for="productDescription">Descrizione:</label>
+        <textarea id="productDescription" required></textarea>
+
+        <label for="productBrand">Marca:</label>
+        <input type="text" id="productBrand" required>
+
+        <label for="productImage">URL dell'immagine:</label>
+        <input type="text" id="productImage" required>
+
+        <label for="productPrice">Prezzo:</label>
+        <input type="number" id="productPrice" required>
+
+        <button type="button" onclick="createProduct()">Aggiungi Prodotto</button>
+
+        <button type="button" onclick="updateProduct()">Modifica Prodotto</button>
+        <button type="button" onclick="deleteProduct()">Cancella Prodotto</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+      </form>
+    </section>
+
+    <section id="homePage">
+      <!-- Visualizzazione dei prodotti sulla homepage -->
+      <h2>Homepage</h2>
+      <ul id="productList"></ul>
+      <template id="productTemplate">
+        <li>
+          <span class="product-name"></span>
+          <button class="edit-button">Modifica</button>
+          <button class="delete-button">Cancella</button>
+          <button class="details-button">Scopri di più</button>
+        </li>
+      </template>
+    </section>
+
+    <section id="productDetail">
+      <!-- Dettagli del prodotto -->
+      <h2>Dettagli del Prodotto</h2>
+      <div id="productDetails"></div>
+    </section>
+  </main>
+
+  <script src="assets/js/strive-school.js"></script>
+</body>
+</html>
