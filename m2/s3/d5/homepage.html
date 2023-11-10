@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/app.css">
-  <link rel="stylesheet" href="assets/css/homepage.css">
+  <link rel="stylesheet" href="assets/css/strive-school.css">
   <title>Homepage - Online Shop</title>
 </head>
 <body>
@@ -15,12 +14,19 @@
   <main>
     <section id="homePage">
       <!-- Visualizzazione dei prodotti sulla homepage -->
-      <h2>Prodotti Disponibili</h2>
+      <h2>Homepage</h2>
       <ul id="productList"></ul>
+      <template id="productTemplate">
+        <li>
+          <span class="product-name"></span>
+          <button class="edit-button">Modifica</button>
+          <button class="delete-button">Cancella</button>
+          <button class="details-button">Scopri di più</button>
+        </li>
+      </template>
     </section>
   </main>
 
   <script src="assets/js/homepage.js"></script>
-  <script src="assets/js/app.js"></script>
 </body>
 </html>
