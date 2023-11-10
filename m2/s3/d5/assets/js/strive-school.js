@@ -1,6 +1,11 @@
 const apiUrl = "https://striveschool-api.herokuapp.com/api/product/";
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMGVlZDMyNWM5NzAwMTg3ZjlmZDciLCJpYXQiOjE2OTk2MTQ0NDUsImV4cCI6MTcwMDgyNDA0NX0.jjT5KTnMu0Gr3tpio2Znm8H9u3rQJ8naxFdwKOB641Y";
 
+document.getElementById("addProductButton").addEventListener("click", createProduct);
+document.getElementById("updateProductButton").addEventListener("click", updateProduct);
+document.getElementById("deleteProductButton").addEventListener("click", deleteProduct);
+document.getElementById("resetFormButton").addEventListener("click", resetForm);
+
 // Funzione per ottenere la lista dei prodotti e visualizzarli sulla homepage
 async function getProducts() {
   try {
@@ -66,7 +71,8 @@ async function showProductDetails(productId) {
 }
 
 // Funzione per creare un nuovo prodotto
-async function createProduct() {
+async function createProduct(e) {
+  e.preventDefault ()
   const productName = document.getElementById("productName").value;
   const productDescription = document.getElementById("productDescription").value;
   const productBrand = document.getElementById("productBrand").value;
