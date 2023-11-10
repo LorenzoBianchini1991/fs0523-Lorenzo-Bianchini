@@ -1,52 +1,60 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const savedProducts = JSON.parse(localStorage.getItem('products')) || [];
-  renderProductList(savedProducts);
-});
+const apiUrl = "https://striveschool-api.herokuapp.com/api/product/";
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMGVlZDMyNWM5NzAwMTg3ZjlmZDciLCJpYXQiOjE2OTk2MTQ0NDUsImV4cCI6MTcwMDgyNDA0NX0.jjT5KTnMu0Gr3tpio2Znm8H9u3rQJ8naxFdwKOB641Y";
 
-function renderProductList(products) {
-  const productList = document.getElementById('productList');
-  const productTemplate = document.getElementById('productTemplate');
-
-  productList.innerHTML = '';
-
-  products.forEach(product => {
-    const listItem = productTemplate.content.cloneNode(true);
-    const productNameSpan = listItem.querySelector('.product-name');
-    const detailsButton = listItem.querySelector('.details-button');
-
-    productNameSpan.textContent = product.name;
-    detailsButton.dataset.productId = product._id;
-
-    detailsButton.addEventListener('click', function () {
-      showProductDetails(product._id);
+// Funzione per ottenere la lista dei prodotti e visualizzarli sulla homepage
+async function getProducts() {
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     });
 
-    productList.appendChild(listItem);
+    if (!response.ok) {
+      throw new Error(`Errore durante il recupero dei prodotti: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    const productList = document.getElementById("productList");
+
+    // Pulisci la lista prima di aggiungere i nuovi elementi
+    productList.innerHTML = "";
+
+    // Crea un template di prodotto
+    const productTemplate = document.getElementById("productTemplate");
+
+    // Aggiungi ogni prodotto alla lista sulla homepage
+    data.forEach(product => {
+      const listItem = productTemplate.content.cloneNode(true);
+
+      // Popola il template con i dettagli del prodotto
+      listItem.querySelector(".product-name").textContent = product.name;
+      listItem.querySelector(".edit-button").addEventListener("click", () => editProduct(product._id));
+      listItem.querySelector(".delete-button").addEventListener("click", () => deleteProduct(product._id));
+      listItem.querySelector(".details-button").addEventListener("click", () => showProductDetails(product._id));
+
+      productList.appendChild(listItem);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Funzione per cambiare la visualizzazione tra le pagine
+function changePage(pageName) {
+  // Nascondi tutte le sezioni
+  const sections = document.querySelectorAll('main > section');
+  sections.forEach(section => {
+    section.style.display = 'none';
   });
+
+  // Mostra solo la sezione richiesta
+  const targetSection = document.getElementById(pageName);
+  if (targetSection) {
+    targetSection.style.display = 'block';
+  }
 }
 
-function addProduct() {
-  const productName = document.getElementById('productName').value;
-  const productDescription = document.getElementById('productDescription').value;
-  const productBrand = document.getElementById('productBrand').value;
-  const productImage = document.getElementById('productImage').value;
-  const productPrice = document.getElementById('productPrice').value;
+// Avvia l'app ottenendo i prodotti iniziali
+getProducts();
 
-  const newProduct = {
-    name: productName,
-    description: productDescription,
-    brand: productBrand,
-    imageUrl: productImage,
-    price: parseFloat(productPrice)
-  };
-
-  const savedProducts = JSON.parse(localStorage.getItem('products')) || [];
-
-  savedProducts.push(newProduct);
-
-  localStorage.setItem('products', JSON.stringify(savedProducts));
-
-  renderProductList(savedProducts);
-
-  resetForm();
-}

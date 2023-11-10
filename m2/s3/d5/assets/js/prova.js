@@ -1,10 +1,31 @@
 const apiUrl = "https://striveschool-api.herokuapp.com/api/product/";
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMGVlZDMyNWM5NzAwMTg3ZjlmZDciLCJpYXQiOjE2OTk2MTQ0NDUsImV4cCI6MTcwMDgyNDA0NX0.jjT5KTnMu0Gr3tpio2Znm8H9u3rQJ8naxFdwKOB641Y";
 
-document.getElementById("addProductButton").addEventListener("click", createProduct);
-document.getElementById("updateProductButton").addEventListener("click", updateProduct);
-document.getElementById("deleteProductButton").addEventListener("click", deleteProduct);
-document.getElementById("resetFormButton").addEventListener("click", resetForm);
+document.addEventListener("DOMContentLoaded", function() {
+    // Gestione eventi per backoffice.html
+    if (document.location.pathname.includes("backoffice.html")) {
+        document.getElementById("addProductButton").addEventListener("click", createProduct);
+        document.getElementById("resetFormButton").addEventListener("click", resetForm);
+    }
+  
+    // Gestione eventi per homepage.html
+    if (document.location.pathname.includes("homepage.html")) {
+        getProducts();
+    }
+  
+    // Gestione eventi per productdetail.html
+    if (document.location.pathname.includes("productdetail.html")) {
+        const productId = localStorage.getItem("selectedProductId");
+        if (productId) {
+            showProductDetails(productId);
+        }
+    }
+  });
+
+function openProductDetail(productId) {
+  localStorage.setItem("selectedProductId", productId);
+  window.location.href = "productdetail.html";
+}  
 
 // Funzione per ottenere la lista dei prodotti e visualizzarli sulla homepage
 async function getProducts() {
@@ -45,9 +66,43 @@ async function getProducts() {
   }
 }
 
+// Funzione per visualizzare i dettagli di un singolo prodotto
+async function showProductDetails(productId) {
+    console.log("Chiamata a showProductDetails con productId:", productId);
+    try {
+      const response = await fetch(`${apiUrl}/${productId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Errore durante il recupero dei dettagli del prodotto: ${response.statusText}`);
+      }
+  
+      const product = await response.json();
+      const productDetails = document.getElementById("productDetails");
+  
+      if (!productDetails) {
+        console.error("Elemento 'productDetails' non trovato nel DOM.");
+        return;
+      }
+  
+      productDetails.innerHTML = ""; // Pulisci i dettagli esistenti
+  
+      for (const key in product) {
+        const detailItem = document.createElement("div");
+        detailItem.innerHTML = `<strong>${key}:</strong> ${product[key]}`;
+        productDetails.appendChild(detailItem);
+      }
+    } catch (error) {
+      console.error("Errore durante il recupero dei dettagli del prodotto:", error);
+    }
+  }
+
 // Funzione per creare un nuovo prodotto
 async function createProduct(e) {
-  e.preventDefault();
+  e.preventDefault ()
   const productName = document.getElementById("productName").value;
   const productDescription = document.getElementById("productDescription").value;
   const productBrand = document.getElementById("productBrand").value;
@@ -130,6 +185,7 @@ async function editProduct(productId) {
     console.error("Errore durante il recupero del prodotto per la modifica:", error);
   }
 }
+
 
 // Nuova funzione per aggiornare un prodotto esistente
 async function updateProduct() {
