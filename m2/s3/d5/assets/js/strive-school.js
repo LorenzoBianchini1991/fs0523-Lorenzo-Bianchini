@@ -36,6 +36,8 @@ function openProductDetail(productId) {
 
 // Ottiene i prodotti dall'API e li visualizza in base alla pagina corrente
 async function getProducts() {
+  document.getElementById('loadingSpinner').style.display = 'block';
+
   try {
     const response = await fetch(apiUrl, {
       headers: {
@@ -48,13 +50,18 @@ async function getProducts() {
     }
 
     const data = await response.json();
+
     if (document.location.pathname.includes("homepage.html")) {
       updateProductList(data, "productList", "productTemplate");
-    } else if (document.location.pathname.includes("backoffice.html")) {
+    } 
+    else if (document.location.pathname.includes("backoffice.html")) {
       updateBackofficeProductList(data);
     }
   } catch (error) {
     console.error(error);
+
+  } finally {
+    document.getElementById('loadingSpinner').style.display = 'none';
   }
 }
 
