@@ -3,15 +3,20 @@ const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMGVlZDMyNWM5
 
 // Gestione degli eventi al caricamento del documento
 document.addEventListener("DOMContentLoaded", function() {
+
   // Gestione per la pagina backoffice.html
   if (document.location.pathname.includes("backoffice.html")) {
     document.getElementById("addProductButton").addEventListener("click", createProduct);
-    document.getElementById("resetFormButton").addEventListener("click", resetForm);
+    document.getElementById("resetFormButton").addEventListener("click", () => {
+      showConfirmationModal(resetForm, "resettare il form");
+    });
     document.getElementById("updateProductButton").addEventListener("click", updateProduct);
     getProducts();
+
   // Gestione per la pagina homepage.html
   } else if (document.location.pathname.includes("homepage.html")) {
     getProducts();
+    
   // Gestione per la pagina productdetail.html
   } else if (document.location.pathname.includes("productdetail.html")) {
     const productId = localStorage.getItem("selectedProductId");
@@ -241,25 +246,45 @@ async function updateProduct() {
   }
 }
 
+// Funzione per mostrare la finestra modale di conferma
+function showConfirmationModal(action, actionText) {
+  const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+  const confirmButton = document.getElementById('confirmActionButton');
+  const modalBody = document.getElementById('confirmationModalBody');
+
+  modalBody.textContent = `Sei sicuro di voler ${actionText}?`;
+  confirmButton.onclick = function() {
+    action();
+    confirmationModal.hide();
+  };
+
+  confirmationModal.show();
+}
+
 // Cancella un prodotto esistente inviando una richiesta DELETE all'API
 async function deleteProduct(productId) {
-  try {
-      const response = await fetch(`${apiUrl}/${productId}`, {
+  showConfirmationModal(
+    async () => {
+      try {
+        const response = await fetch(`${apiUrl}/${productId}`, {
           method: "DELETE",
           headers: {
-              Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`
           }
-      });
+        });
 
-      if (response.ok) {
+        if (response.ok) {
           getProducts();
           console.log("Prodotto cancellato con successo!");
-      } else {
+        } else {
           console.error("Errore durante la cancellazione del prodotto:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Errore durante la cancellazione del prodotto:", error);
       }
-  } catch (error) {
-      console.error("Errore durante la cancellazione del prodotto:", error);
-  }
+    },
+    "cancellare il prodotto"
+  );
 }
 
 // Cambia la visualizzazione tra le pagine nella pagina backoffice
