@@ -1,29 +1,35 @@
 const apiUrl = "https://striveschool-api.herokuapp.com/api/product/";
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTRlMGVlZDMyNWM5NzAwMTg3ZjlmZDciLCJpYXQiOjE2OTk2MTQ0NDUsImV4cCI6MTcwMDgyNDA0NX0.jjT5KTnMu0Gr3tpio2Znm8H9u3rQJ8naxFdwKOB641Y";
 
+// Gestione degli eventi al caricamento del documento
 document.addEventListener("DOMContentLoaded", function() {
+  // Gestione per la pagina backoffice.html
   if (document.location.pathname.includes("backoffice.html")) {
     document.getElementById("addProductButton").addEventListener("click", createProduct);
     document.getElementById("resetFormButton").addEventListener("click", resetForm);
     document.getElementById("updateProductButton").addEventListener("click", updateProduct);
     getProducts();
+  // Gestione per la pagina homepage.html
   } else if (document.location.pathname.includes("homepage.html")) {
     getProducts();
+  // Gestione per la pagina productdetail.html
   } else if (document.location.pathname.includes("productdetail.html")) {
     const productId = localStorage.getItem("selectedProductId");
+
     if (productId) {
       showProductDetails(productId);
     }
   }
 });
 
+// Apre i dettagli del prodotto in una nuova scheda
 function openProductDetail(productId) {
   localStorage.setItem("selectedProductId", productId);
   window.open("productdetail.html", "_blank");
 }
 
 
-// Funzione per ottenere la lista dei prodotti e visualizzarli sulla homepage o backoffice
+// Ottiene i prodotti dall'API e li visualizza in base alla pagina corrente
 async function getProducts() {
   try {
     const response = await fetch(apiUrl, {
@@ -47,6 +53,7 @@ async function getProducts() {
   }
 }
 
+// Aggiorna la lista dei prodotti nella homepage
 function updateProductList(products, productListId, productTemplateId) {
   const productList = document.getElementById(productListId);
   const productTemplate = document.getElementById(productTemplateId);
@@ -66,6 +73,7 @@ function updateProductList(products, productListId, productTemplateId) {
   });
 }
 
+// Aggiorna la lista dei prodotti nel backoffice
 function updateBackofficeProductList(products) {
   const backofficeList = document.getElementById("backofficeProductList");
   backofficeList.innerHTML = "";
@@ -91,7 +99,7 @@ function updateBackofficeProductList(products) {
   });
 }
 
-// Funzione per visualizzare i dettagli di un singolo prodotto
+// Visualizza i dettagli di un prodotto specifico
 async function showProductDetails(productId) {
   try {
       const response = await fetch(`${apiUrl}/${productId}`, {
@@ -120,7 +128,7 @@ async function showProductDetails(productId) {
   }
 }
 
-// Funzione per creare un nuovo prodotto
+// Crea un nuovo prodotto inviando una richiesta POST all'API
 async function createProduct(e) {
   e.preventDefault();
   const productName = document.getElementById("productName").value;
@@ -163,14 +171,14 @@ async function createProduct(e) {
   }
 }
 
-// Funzione per resettare il form
+// Resetta il form nella pagina backoffice
 function resetForm() {
   document.getElementById("productForm").reset();
   document.getElementById("updateProductButton").style.display = 'none';
   document.getElementById("addProductButton").style.display = 'block';
 }
 
-// Funzione per abilitare la modalità di modifica
+// Abilita la modalità di modifica per un prodotto specifico
 async function editProduct(productId) {
   try {
       const response = await fetch(`${apiUrl}/${productId}`, {
@@ -200,7 +208,7 @@ async function editProduct(productId) {
 }
 
 
-// Funzione per aggiornare un prodotto esistente
+// Aggiorna un prodotto esistente inviando una richiesta PUT all'API
 async function updateProduct() {
   const productId = document.getElementById("productId").value;
   const updatedProduct = {
@@ -233,7 +241,7 @@ async function updateProduct() {
   }
 }
 
-// Funzione per cancellare un prodotto esistente
+// Cancella un prodotto esistente inviando una richiesta DELETE all'API
 async function deleteProduct(productId) {
   try {
       const response = await fetch(`${apiUrl}/${productId}`, {
@@ -254,7 +262,7 @@ async function deleteProduct(productId) {
   }
 }
 
-// Funzione per cambiare la visualizzazione tra le pagine
+// Cambia la visualizzazione tra le pagine nella pagina backoffice
 function changePage(pageName) {
   const sections = document.querySelectorAll('main > section');
   sections.forEach(section => {
@@ -267,6 +275,7 @@ function changePage(pageName) {
   }
 }
 
+// Richiama la funzione per ottenere i prodotti all'avvio dell'app
 getProducts()
 
  
