@@ -27,27 +27,31 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-  /********************************************
-              FUNZIONI ASINCRONE
-  ********************************************/
+/********************************************
+            FUNZIONI ASINCRONE
+ ********************************************/
 
 // Ottiene i prodotti dall'API e li visualizza in base alla pagina corrente
 async function getProducts() {
-  document.getElementById('loadingSpinner').style.display = 'block';
-  
+  const spinner = document.getElementById('loadingSpinner');
+
+  if (spinner) {
+    spinner.classList.remove('d-none');
+  }
+
   try {
     const response = await fetch(apiUrl, {
       headers: {
         Authorization: `Bearer ${token}`
       }
     });
-    
+
     if (!response.ok) {
       throw new Error(`Errore durante il recupero dei prodotti: ${response.statusText}`);
     }
-    
+
     const data = await response.json();
-    
+
     if (document.location.pathname.includes("homepage.html")) {
       updateProductList(data, "productList", "productTemplate");
     } 
@@ -58,40 +62,42 @@ async function getProducts() {
     console.error(error);
     showError('Errore durante il recupero dei prodotti. Riprova più tardi.');
     hideError();
-    
+
   } finally {
-    document.getElementById('loadingSpinner').style.display = 'none';
+    if (spinner) {
+      spinner.classList.add('d-none');
+    }
   }
 }
 
 // Visualizza i dettagli di un prodotto specifico
 async function showProductDetails(productId) {
   try {
-    const response = await fetch(`${apiUrl}/${productId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
+      const response = await fetch(`${apiUrl}/${productId}`, {
+          headers: {
+              Authorization: `Bearer ${token}`
+          }
+      });
+
+      if (!response.ok) {
+          throw new Error(`Errore durante il recupero dei dettagli del prodotto: ${response.statusText}`);
       }
-    });
-    
-    if (!response.ok) {
-      throw new Error(`Errore durante il recupero dei dettagli del prodotto: ${response.statusText}`);
-    }
-    
-    const product = await response.json();
-    const productDetails = document.getElementById("productDetails");
-    productDetails.innerHTML = "";
-    
-    for (const key in product) {
-      const detailItem = document.createElement("div");
-      detailItem.innerHTML = `<strong>${key}:</strong> ${product[key]}`;
-      productDetails.appendChild(detailItem);
-    }
-    
-    localStorage.removeItem("selectedProductId");
+
+      const product = await response.json();
+      const productDetails = document.getElementById("productDetails");
+      productDetails.innerHTML = "";
+
+      for (const key in product) {
+          const detailItem = document.createElement("div");
+          detailItem.innerHTML = `<strong>${key}:</strong> ${product[key]}`;
+          productDetails.appendChild(detailItem);
+      }
+
+      localStorage.removeItem("selectedProductId");
   } catch (error) {
-    console.error("Errore durante il recupero dei dettagli del prodotto:", error);
-    showError('Errore durante il recupero dei dettagli del prodotto:');
-    hideError();
+      console.error("Errore durante il recupero dei dettagli del prodotto:", error);
+      showError('Errore durante il recupero dei dettagli del prodotto:');
+      hideError();
   }
 }
 
@@ -103,11 +109,11 @@ async function createProduct(e) {
   const productBrand = document.getElementById("productBrand").value;
   const productImage = document.getElementById("productImage").value;
   const productPrice = document.getElementById("productPrice").value;
-  
+
   if (!productName || !productDescription || !productBrand || !productImage || !productPrice) {
     return;
   }
-  
+
   const newProduct = {
     name: productName,
     description: productDescription,
@@ -115,59 +121,59 @@ async function createProduct(e) {
     imageUrl: productImage,
     price: parseFloat(productPrice)
   };
-  
+
   try {
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-      body: JSON.stringify(newProduct)
-    });
-    
-    if (response.ok) {
-      getProducts();
-      console.log("Prodotto creato con successo!");
-      resetForm();
-    } else {
-      console.error("Errore durante la creazione del prodotto:", response.statusText);
-    }
+      const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify(newProduct)
+      });
+
+      if (response.ok) {
+          getProducts();
+          console.log("Prodotto creato con successo!");
+          resetForm();
+      } else {
+          console.error("Errore durante la creazione del prodotto:", response.statusText);
+      }
   } catch (error) {
-    console.error("Errore durante la creazione del prodotto:", error);
-    showError('Errore durante la creazione del prodotto:');
-    hideError();
+      console.error("Errore durante la creazione del prodotto:", error);
+      showError('Errore durante la creazione del prodotto:');
+      hideError();
   }
 }
 
 // Abilita la modalità di modifica per un prodotto specifico
 async function editProduct(productId) {
   try {
-    const response = await fetch(`${apiUrl}/${productId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
+      const response = await fetch(`${apiUrl}/${productId}`, {
+          headers: {
+              Authorization: `Bearer ${token}`
+          }
+      });
+
+      if (!response.ok) {
+          throw new Error(`Errore durante il recupero del prodotto: ${response.statusText}`);
       }
-    });
-    
-    if (!response.ok) {
-      throw new Error(`Errore durante il recupero del prodotto: ${response.statusText}`);
-    }
-    
-    const product = await response.json();
-    
-    document.getElementById("productName").value = product.name;
-    document.getElementById("productDescription").value = product.description;
-    document.getElementById("productBrand").value = product.brand;
-    document.getElementById("productImage").value = product.imageUrl;
-    document.getElementById("productPrice").value = product.price;
-    document.getElementById("productId").value = productId;
-    
-    document.getElementById("updateProductButton").style.display = 'block';
-    document.getElementById("addProductButton").style.display = 'none';
+
+      const product = await response.json();
+
+      document.getElementById("productName").value = product.name;
+      document.getElementById("productDescription").value = product.description;
+      document.getElementById("productBrand").value = product.brand;
+      document.getElementById("productImage").value = product.imageUrl;
+      document.getElementById("productPrice").value = product.price;
+      document.getElementById("productId").value = productId;
+
+      document.getElementById("updateProductButton").style.display = 'block';
+      document.getElementById("addProductButton").style.display = 'none';
   } catch (error) {
-    console.error("Errore durante il recupero del prodotto per la modifica:", error);
-    showError('Errore durante il recupero del prodotto per la modifica:');
-    hideError();
+      console.error("Errore durante il recupero del prodotto per la modifica:", error);
+      showError('Errore durante il recupero del prodotto per la modifica:');
+      hideError();
   }
 }
 
@@ -175,34 +181,34 @@ async function editProduct(productId) {
 async function updateProduct() {
   const productId = document.getElementById("productId").value;
   const updatedProduct = {
-    name: document.getElementById("productName").value,
-    description: document.getElementById("productDescription").value,
-    brand: document.getElementById("productBrand").value,
-    imageUrl: document.getElementById("productImage").value,
-    price: parseFloat(document.getElementById("productPrice").value)
+      name: document.getElementById("productName").value,
+      description: document.getElementById("productDescription").value,
+      brand: document.getElementById("productBrand").value,
+      imageUrl: document.getElementById("productImage").value,
+      price: parseFloat(document.getElementById("productPrice").value)
   };
-  
+
   try {
-    const response = await fetch(`${apiUrl}/${productId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      },
-      body: JSON.stringify(updatedProduct)
-    });
-    
-    if (response.ok) {
-      getProducts();
-      resetForm();
-      console.log("Prodotto aggiornato con successo!");
-    } else {
-      console.error("Errore durante l'aggiornamento del prodotto:", response.statusText);
-    }
+      const response = await fetch(`${apiUrl}/${productId}`, {
+          method: "PUT",
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify(updatedProduct)
+      });
+
+      if (response.ok) {
+          getProducts();
+          resetForm();
+          console.log("Prodotto aggiornato con successo!");
+      } else {
+          console.error("Errore durante l'aggiornamento del prodotto:", response.statusText);
+      }
   } catch (error) {
-    console.error("Errore durante l'aggiornamento del prodotto:", error);
-    showError("Errore durante l'aggiornamento del prodotto:");
-    hideError();
+      console.error("Errore durante l'aggiornamento del prodotto:", error);
+      showError("Errore durante l'aggiornamento del prodotto:");
+      hideError();
   }
 }
 
@@ -217,7 +223,7 @@ async function deleteProduct(productId) {
             Authorization: `Bearer ${token}`
           }
         });
-        
+
         if (response.ok) {
           getProducts();
           console.log("Prodotto cancellato con successo!");
@@ -231,58 +237,52 @@ async function deleteProduct(productId) {
       }
     },
     "cancellare il prodotto"
-    );
-  }
-  
-  /********************************************
-              FUNZIONI
-  ********************************************/
-
-// Apre i dettagli del prodotto in una nuova scheda
-function openProductDetail(productId) {
-  localStorage.setItem("selectedProductId", productId);
-  window.open("productdetail.html", "_blank");
+  );
 }
+
+/********************************************
+                  FUNZIONI
+ ********************************************/
 
 // Aggiorna la lista dei prodotti nella homepage
 function updateProductList(products, productListId, productTemplateId) {
   const productList = document.getElementById(productListId);
   const productTemplate = document.getElementById(productTemplateId);
   productList.innerHTML = "";
-  
+
   products.forEach(product => {
     const listItem = productTemplate.content.cloneNode(true);
     listItem.querySelector(".product-name").textContent = product.name;
-    
+
     if (document.location.pathname.includes("backoffice.html")) {
-      listItem.querySelector(".edit-button").addEventListener("click",() => editProduct(product._id));
-      listItem.querySelector(".delete-button").addEventListene("click", () => deleteProduct(product._id));
+      listItem.querySelector(".edit-button").addEventListener("click", () => editProduct(product._id));
+      listItem.querySelector(".delete-button").addEventListener("click", () => deleteProduct(product._id));
     }
     
-    listItem.querySelector(".details-button").addEventListener("click",() => openProductDetail(product._id));
+    listItem.querySelector(".details-button").addEventListener("click", () => openProductDetail(product._id));
     productList.appendChild(listItem);
   });
 }
 
 // Aggiorna la lista dei prodotti nel backoffice
 function updateBackofficeProductList(products) {
-  const backofficeList = document.getElementByI("backofficeProductList");
+  const backofficeList = document.getElementById("backofficeProductList");
   backofficeList.innerHTML = "";
-  
+
   products.forEach(product => {
-    const listItem = document.createElement("li");
-    listItem.className = 'list-group-item d-flexjustify-content-between align-items-center';
-    listItem.textContent = product.name;
-    
-    const editButton = document.createElement("button");
+      const listItem = document.createElement("li");
+      listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+      listItem.textContent = product.name;
+
+      const editButton = document.createElement("button");
       editButton.className = 'btn btn-primary btn-sm';
       editButton.textContent = "Modifica";
-      editButton.addEventListener("click", () => editProduct(product_id));
+      editButton.addEventListener("click", () => editProduct(product._id));
 
       const deleteButton = document.createElement("button");
       deleteButton.className = 'btn btn-danger btn-sm';
       deleteButton.textContent = "Cancella";
-      deleteButton.addEventListener("click", () => deleteProduc(product._id));
+      deleteButton.addEventListener("click", () => deleteProduct(product._id));
 
       listItem.appendChild(editButton);
       listItem.appendChild(deleteButton);
@@ -299,16 +299,16 @@ function resetForm() {
 
 // Funzione per mostrare la finestra modale di conferma
 function showConfirmationModal(action, actionText) {
-  const confirmationModal = new bootstrap.Modal(document.getElementByI('confirmationModal'));
+  const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
   const confirmButton = document.getElementById('confirmActionButton');
   const modalBody = document.getElementById('confirmationModalBody');
-  
+
   modalBody.textContent = `Sei sicuro di voler ${actionText}?`;
   confirmButton.onclick = function() {
     action();
     confirmationModal.hide();
   };
-  
+
   confirmationModal.show();
 }
 
@@ -318,11 +318,17 @@ function changePage(pageName) {
   sections.forEach(section => {
     section.style.display = 'none';
   });
-  
+
   const targetSection = document.getElementById(pageName);
   if (targetSection) {
     targetSection.style.display = 'block';
   }
+}
+
+// Apre i dettagli del prodotto in una nuova scheda
+function openProductDetail(productId) {
+  localStorage.setItem("selectedProductId", productId);
+  window.open("productdetail.html", "_blank");
 }
 
 // Funzione per mostrare l' allert
