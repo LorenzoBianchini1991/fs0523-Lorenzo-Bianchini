@@ -59,6 +59,7 @@ async function getProducts() {
     }
   } catch (error) {
     console.error(error);
+    showError('Errore durante il recupero dei prodotti. Riprova più tardi.');
 
   } finally {
     document.getElementById('loadingSpinner').style.display = 'none';
@@ -137,6 +138,7 @@ async function showProductDetails(productId) {
       localStorage.removeItem("selectedProductId");
   } catch (error) {
       console.error("Errore durante il recupero dei dettagli del prodotto:", error);
+      showError('Errore durante il recupero dei dettagli del prodotto:');
   }
 }
 
@@ -180,6 +182,7 @@ async function createProduct(e) {
       }
   } catch (error) {
       console.error("Errore durante la creazione del prodotto:", error);
+      showError('Errore durante la creazione del prodotto:');
   }
 }
 
@@ -216,6 +219,7 @@ async function editProduct(productId) {
       document.getElementById("addProductButton").style.display = 'none';
   } catch (error) {
       console.error("Errore durante il recupero del prodotto per la modifica:", error);
+      showError('Errore durante il recupero del prodotto per la modifica:');
   }
 }
 
@@ -250,6 +254,7 @@ async function updateProduct() {
       }
   } catch (error) {
       console.error("Errore durante l'aggiornamento del prodotto:", error);
+      showError("Errore durante l'aggiornamento del prodotto:");
   }
 }
 
@@ -288,6 +293,7 @@ async function deleteProduct(productId) {
         }
       } catch (error) {
         console.error("Errore durante la cancellazione del prodotto:", error);
+        showError('Errore durante la cancellazione del prodotto:');
       }
     },
     "cancellare il prodotto"
@@ -305,6 +311,13 @@ function changePage(pageName) {
   if (targetSection) {
     targetSection.style.display = 'block';
   }
+}
+
+// Funzione per mostrare gli errori
+function showError(message) {
+  const errorAlert = document.getElementById('errorAlert');
+  errorAlert.textContent = message;
+  errorAlert.style.display = 'block';
 }
 
 // Richiama la funzione per ottenere i prodotti all'avvio dell'app
