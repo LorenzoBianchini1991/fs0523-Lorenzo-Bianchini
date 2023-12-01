@@ -1,0 +1,10 @@
+<div class="completed-todos-container">
+    <ul class="completed-todos-list">
+      <li *ngFor="let todo of completedTodos">
+        {{ todo.title }}
+        <button (click)="toggleCompletion(todo.id)">Riattiva</button>
+        <button (click)="removeTodo(todo.id)">Rimuovi</button>
+      </li>
+    </ul>
+  </div>
+  

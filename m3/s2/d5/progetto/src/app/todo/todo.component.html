@@ -1,0 +1,15 @@
+<div class="todo-container">
+    <form (submit)="addTodo(newTodoTitle.value); newTodoTitle.value=''">
+      <input type="text" #newTodoTitle placeholder="Aggiungi un nuovo todo" />
+      <button type="submit">Aggiungi</button>
+    </form>
+  
+    <ul class="todos-list">
+      <li *ngFor="let todo of todos">
+        {{ todo.title }}
+        <button (click)="toggleCompletion(todo.id)">Completa</button>
+        <button (click)="removeTodo(todo.id)">Rimuovi</button>
+      </li>
+    </ul>
+  </div>
+  

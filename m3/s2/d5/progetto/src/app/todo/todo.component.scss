@@ -1,0 +1,54 @@
+/* Stile base per i container */
+.todo-container, .completed-todos-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  /* Stile base per gli elenchi */
+  .todos-list, .completed-todos-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Stile per gli elementi della lista */
+  .todos-list li, .completed-todos-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Ultimo elemento senza bordo inferiore */
+  .todos-list li:last-child, .completed-todos-list li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Stile per i bottoni */
+  button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+  
+  /* Stile per il form di input */
+  form {
+    margin-bottom: 20px;
+  
+    input[type="text"] {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+  }
+  
