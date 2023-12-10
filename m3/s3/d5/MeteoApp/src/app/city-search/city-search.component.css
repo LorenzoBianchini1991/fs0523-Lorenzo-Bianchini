@@ -1,0 +1,14 @@
+.search-container {
+    margin: 20px;
+    text-align: center;
+  }
+  input[type="text"] {
+    padding: 10px;
+    margin-right: 10px;
+    width: 200px;
+  }
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  

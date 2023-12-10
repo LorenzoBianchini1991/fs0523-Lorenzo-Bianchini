@@ -1,0 +1,6 @@
+<div *ngIf="weatherData">
+    <h2>Meteo a {{ weatherData.name }}</h2>
+    <p>Temperatura: {{ weatherData.main.temp }}°C</p>
+    <p>Condizioni: {{ weatherData.weather[0].description }}</p>
+    <button (click)="addToFavorites(weatherData.name)">Aggiungi ai Preferiti</button>
+</div>

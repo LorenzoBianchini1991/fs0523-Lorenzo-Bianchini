@@ -1,0 +1,10 @@
+<div *ngIf="favoriteCities && favoriteCities.length > 0">
+  <h3>Città Preferite</h3>
+  <ul>
+      <li *ngFor="let city of favoriteCities">
+          {{ city.city }}
+          <button (click)="removeFromFavorites(city.id)">Rimuovi</button>
+      </li>
+  </ul>
+</div>
+  
